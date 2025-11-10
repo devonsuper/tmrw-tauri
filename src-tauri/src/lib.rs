@@ -1,0 +1,18 @@
+mod config;
+use config::PERSON;
+
+
+#[tauri::command]
+fn get_person() -> String {
+
+    return PERSON.into();
+}
+
+#[cfg_attr(mobile, tauri::mobile_entry_point)]
+pub fn run() {
+    tauri::Builder::default()
+        .plugin(tauri_plugin_opener::init())
+        .invoke_handler(tauri::generate_handler![get_person])
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
+}
