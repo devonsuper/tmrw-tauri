@@ -15,7 +15,7 @@
         "title": "tmrw-tauri",
         "width": 1080,
         "height": 1920,
-        "fullscreen": false,
+        "fullscreen": true,
         "transparent": false, "decorations": true, "resizable": true
       }
     ],
