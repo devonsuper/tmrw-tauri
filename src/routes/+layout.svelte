@@ -1,5 +1,5 @@
  <script>
-    import { blur } from 'svelte/transition';
+    import { slide, blur } from 'svelte/transition';
 
     export let data;
 
@@ -10,7 +10,8 @@
 
 </script>
 
-<!-- {#key data.pathname}
+{#key data.pathname}
+
     <div
         class="wrapper"
         in:blur={{duration: inDuration, delay: outDuration }}
@@ -18,7 +19,7 @@
     >
         <slot />
     </div>
-{/key} -->
+{/key}
 
 <!-- <style>
     :global(body) {

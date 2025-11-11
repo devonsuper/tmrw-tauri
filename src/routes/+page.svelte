@@ -35,18 +35,23 @@
 
     videoPath = `/videos/${person}/idle.mp4`
   
-    buttonColor = personToColor.get(person);
+    buttonColor = personToColor.get(person) ?? 'blue';
   });
 </script>
   
 <main>
 <div class="player">
-  <video id='myVideo' class:blurred={selectionMode}
-    src={videoPath}
-    autoplay
-    loop
-    onclick={handleVideoClick}
-  >
+    <video
+      id="myVideo"
+      class:blurred={selectionMode}
+      src={videoPath}
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      onclick={handleVideoClick}
+      >
     <track kind="captions" />
   </video>
 </div>
@@ -83,8 +88,11 @@
     object-fit: cover;  
   }
 
-  .blurred {
-    filter: blur(12px);
+  .blurred::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: rgba(0, 0, 0, 0.2); /* cheap vs. blur */
+    z-index: 1; 
   }
 
   .buttons {
