@@ -9,7 +9,7 @@
     let videoPath: string = '';
     let video: HTMLVideoElement;
 
-    let awaitPlayTime = 250;
+    let awaitPlayTime = 500;
 
     onMount(async () => {
         const person :string = await invoke("get_person");
@@ -17,7 +17,7 @@
         videoPath = `/videos/${person}/${data.page}.mp4`;
     
 
-        // let timeoutId = setTimeout(() => {video.play()}, awaitPlayTime);
+        let timeoutId = setTimeout(() => {video.play()}, awaitPlayTime);
     });
 
     function handleVideoEnded(){
@@ -31,7 +31,6 @@
   <video id='myVideo' bind:this={video}
     src={videoPath}
     on:ended={handleVideoEnded}
-    autoplay
     playsinline
     preload="metadata"
   >
