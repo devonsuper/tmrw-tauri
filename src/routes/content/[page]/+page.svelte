@@ -17,7 +17,7 @@
         videoPath = `/videos/${person}/${data.page}.mp4`;
     
 
-        let timeoutId = setTimeout(() => {video.play()}, awaitPlayTime);
+        // let timeoutId = setTimeout(() => {video.play()}, awaitPlayTime);
     });
 
     function handleVideoEnded(){
@@ -31,6 +31,9 @@
   <video id='myVideo' bind:this={video}
     src={videoPath}
     on:ended={handleVideoEnded}
+    autoplay
+    playsinline
+    preload="metadata"
   >
     <track kind="captions"/>
   </video>

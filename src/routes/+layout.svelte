@@ -6,8 +6,6 @@
     let inDuration = 500;
     let outDuration = 500;
 
-
-
 </script>
 
 {#key data.pathname}
