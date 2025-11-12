@@ -6,16 +6,11 @@
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
 
-    let videoPath: string = '';
     let video: HTMLVideoElement;
 
-    let awaitPlayTime = 500;
+    let awaitPlayTime = 150;
 
-    onMount(async () => {
-        const person :string = await invoke("get_person");
-
-        videoPath = `/videos/${person}/${data.page}.mp4`;
-    
+    onMount(async () => {    
 
         let timeoutId = setTimeout(() => {video.play()}, awaitPlayTime);
     });
@@ -29,7 +24,7 @@
 <main></main>
 <div class="player">
   <video id='myVideo' bind:this={video}
-    src={videoPath}
+    src={data.videoPath}
     on:ended={handleVideoEnded}
     playsinline
     preload="metadata"

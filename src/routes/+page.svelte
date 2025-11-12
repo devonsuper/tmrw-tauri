@@ -4,14 +4,14 @@
   import { goto } from '$app/navigation';
   import { preloadCode, preloadData } from '$app/navigation';
 
-  import { fade } from 'svelte/transition';
+  import { fade} from 'svelte/transition';
 
   import Button from '$lib/components/Button.svelte';
 
   let videoPath: string = '';
   let selectionMode = false;
 
-  const timeOutLength = 30000; // 30 seconds
+  const timeOutLength = 25000; // 25 seconds
   let timeoutId: ReturnType<typeof setTimeout>;
 
   let buttonColor: string = "blue";
@@ -41,9 +41,9 @@
   
 <main>
 <div class="player">
+    <div class="overlay" class:blurred={selectionMode} in:fade></div>
     <video
       id="myVideo"
-      class:blurred={selectionMode}
       src={videoPath}
       autoplay
       loop
@@ -88,11 +88,14 @@
     object-fit: cover;  
   }
 
-  .blurred::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: rgba(0, 0, 0, 0.2); /* cheap vs. blur */
-    z-index: 1; 
+  .blurred {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
   }
 
   .buttons {
