@@ -13,10 +13,11 @@
     "windows": [
       {
         "title": "tmrw-tauri",
-        "width": 1080,
-        "height": 1920,
-        "fullscreen": true,
-        "transparent": false, "decorations": true, "resizable": true
+        "width": 300,
+        "height": 300,
+        "fullscreen": false,
+        "transparent": false, "decorations": true, "resizable": true,
+        "visible": true
       }
     ],
     "security": {
