@@ -1,9 +1,7 @@
 <!-- src/lib/components/Button.svelte -->
 <script lang="ts">
-  // single prop with a fixed selection of colors
   export let color: "green" | "blue" | "orange" | "yellow" | "purple" = "blue";
 
-  // single-color gradients (light → dark of same hue)
   $: gradient = ({
     green:  'linear-gradient(180deg, #22c55e, #16a34a)',
     blue:   'linear-gradient(180deg, #3b82f6, #2563eb)',
@@ -19,13 +17,19 @@
 
 <style>
   .btn {
-    /* single fluid text size relative to viewport */
-    font-size: clamp(0.95rem, 0.8rem + 0.6vw, 1.15rem);
+    /* Font size scales with viewport, but stays in a reasonable range */
+    font-size: clamp(1rem, 1.2vh + 0.6vw, 1.6rem);
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.6em 1em;
+
+    /* Vertical + horizontal padding as a portion of screen size */
+    padding-block: 1.4vh;   /* taller button */
+    padding-inline: 3vh;
+
+    /* Minimum height as a portion of screen height */
+    min-height: 6vh;
 
     font-weight: 600;
     line-height: 1;

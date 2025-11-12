@@ -49,7 +49,7 @@
       loop
       muted
       playsinline
-      preload="metadata"
+      preload
       onclick={handleVideoClick}
       >
     <track kind="captions" />
@@ -58,11 +58,11 @@
 
 
 {#if selectionMode}
-  <div class="buttons" in:fade>
+  <div class="buttons" in:fade out:fade>
     <Button on:click={() => {goto("/content/learning")}} color={buttonColor}>What's learning like?</Button>
     <Button on:click={() => {goto("/content/challenges")}} color={buttonColor}>What new challenges are you facing?</Button>
     <Button on:click={() => {goto("/content/opportunities")}} color={buttonColor}>What new opportunities do you have? </Button>
-    <Button on:click={() => {goto("/aboutme")}} color={buttonColor}>About Me</Button>
+    <Button on:click={() => {goto("/aboutme")}} color={buttonColor}>Tell me about yourself</Button>
   </div>
 {/if}
 
@@ -83,7 +83,7 @@
 
   .player video {
     display: block;
-    width: 100%;
+    width: 100vh;
     height: 100%;  /* height: 100vh; makes it the whole height of the screen */
     object-fit: cover;  
   }
@@ -99,16 +99,17 @@
   }
 
   .buttons {
-    position: fixed;     /* anchor to viewport */
-    left: 0;
-    right: 0;
-    top: 66vh;           /* start 2/3 down the screen */
+    position: fixed;        /* anchor to viewport */
+    inset: 0;               /* top:0; right:0; bottom:0; left:0 */
+    
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* children fill width */
-    gap: 1.5rem;
+    justify-content: center;  /* vertical center */
+    align-items: center;      /* horizontal center */
+
+    gap: 6vh;
     margin: 0;
-    padding: 0;
+    padding: 0 10vw;        /* side padding so buttons don't touch edges */
   }
 
   .buttons .btn { width: 100%; }

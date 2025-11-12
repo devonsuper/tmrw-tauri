@@ -8,7 +8,7 @@
 
     let video: HTMLVideoElement;
 
-    let awaitPlayTime = 150;
+    let awaitPlayTime = 300;
 
     onMount(async () => {    
 
