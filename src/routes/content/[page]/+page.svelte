@@ -8,7 +8,7 @@
 
     let video: HTMLVideoElement;
 
-    let awaitPlayTime = 300;
+    let awaitPlayTime = 0;//300; //make this 0 for apple build
 
     onMount(async () => {    
 
@@ -35,7 +35,7 @@
 
 <style>
   .player {
-    width: 100%;
+    width: 100vw;
     height: 100%;
     position: absolute;
     padding:0;

@@ -5,6 +5,6 @@ export async function load({params}){
 	const person = await invoke("get_person");
 	   return {        
 		page: params.page,
-		videoPath: `/videos/${person}/${params.page}.mp4`,
+		videoPath: `bundle://localhost/assets/videos/${person}/${params.page}.mp4`,
 	      }
 	}

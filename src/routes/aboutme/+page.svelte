@@ -17,7 +17,7 @@
     
     {#key person}
      <!-- <embed src="/{person}.txt"> -->
-        <embed class="text" src="/{person}.txt" color="white" type="text/plain">
+        <embed class="text" src="bundle://localhost/assets/{person}.txt" color="white" type="text/plain">
     {/key}
 
     <div class="buttons">

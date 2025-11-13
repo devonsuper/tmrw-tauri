@@ -26,6 +26,10 @@
   function handleVideoClick(e: MouseEvent){
       selectionMode = true;
 
+      preloadData("/content/learning");
+      preloadData("/content/challenges");
+      preloadData("/content/opportunities");
+
       clearTimeout(timeoutId)
       timeoutId = setTimeout(() => {selectionMode = false}, timeOutLength);
   }
@@ -33,8 +37,9 @@
   onMount(async () => {
     const person :string = await invoke("get_person");
 
-    videoPath = `/videos/${person}/idle.mp4`
-  
+    videoPath = `bundle://localhost/assets/videos/${person}/idle.mp4`
+    
+
     buttonColor = personToColor.get(person) ?? 'blue';
   });
 </script>
@@ -49,7 +54,7 @@
       loop
       muted
       playsinline
-      preload
+      preload="metadata"
       onclick={handleVideoClick}
       >
     <track kind="captions" />
@@ -58,7 +63,8 @@
 
 
 {#if selectionMode}
-  <div class="buttons" in:fade out:fade>
+  <div class="buttons" in:fade out:fade >
+
     <Button on:click={() => {goto("/content/learning")}} color={buttonColor}>What's learning like?</Button>
     <Button on:click={() => {goto("/content/challenges")}} color={buttonColor}>What new challenges are you facing?</Button>
     <Button on:click={() => {goto("/content/opportunities")}} color={buttonColor}>What new opportunities do you have? </Button>
@@ -83,7 +89,7 @@
 
   .player video {
     display: block;
-    width: 100vh;
+    width: 100vw;
     height: 100%;  /* height: 100vh; makes it the whole height of the screen */
     object-fit: cover;  
   }
