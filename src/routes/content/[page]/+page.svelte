@@ -6,6 +6,8 @@
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
 
+    import { fade} from 'svelte/transition';
+
     let video: HTMLVideoElement;
 
     let awaitPlayTime = 0;//300; //make this 0 for apple build
@@ -23,7 +25,7 @@
 
 <main></main>
 <div class="player">
-  <video id='myVideo' bind:this={video}
+  <video id='myVideo' bind:this={video} in:fade
     src={data.videoPath}
     on:ended={handleVideoEnded}
     playsinline
