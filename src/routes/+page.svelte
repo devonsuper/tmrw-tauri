@@ -83,7 +83,7 @@
 
   .player video {
     display: block;
-    width: 100vh;
+    width: 100vw;
     height: 100%;  /* height: 100vh; makes it the whole height of the screen */
     object-fit: cover;  
   }
