@@ -3,8 +3,8 @@
 
     export let data;
 
-    let inDuration = 500;
-    let outDuration = 500;
+    let inDuration = 1500;
+    let outDuration = 1500;
 
 </script>
 

@@ -17,7 +17,7 @@
     
     {#key person}
      <!-- <embed src="/{person}.txt"> -->
-        <embed class="text" src="/{person}.txt" color="white" type="text/plain">
+        <embed class="text" src="http://127.0.0.1:8080/{person}.txt" color="white" type="text/plain">
     {/key}
 
     <div class="buttons">

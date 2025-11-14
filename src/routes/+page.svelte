@@ -8,6 +8,9 @@
 
   import Button from '$lib/components/Button.svelte';
 
+   /** @type {import('./$types').PageData} */    
+  export let data;	
+
   let videoPath: string = '';
   let selectionMode = false;
 
@@ -32,8 +35,6 @@
 
   onMount(async () => {
     const person :string = await invoke("get_person");
-
-    videoPath = `/videos/${person}/idle.mp4`
   
     buttonColor = personToColor.get(person) ?? 'blue';
   });
@@ -44,12 +45,11 @@
     <div class="overlay" class:blurred={selectionMode} in:fade></div>
     <video
       id="myVideo"
-      src={videoPath}
+      src={data.videoPath}
       autoplay
       loop
       muted
       playsinline
-      preload
       onclick={handleVideoClick}
       >
     <track kind="captions" />
