@@ -1,5 +1,5 @@
 [package]
-name = "tmrw-tauri"
+name = "bakyt"
 version = "0.1.0"
 description = "A Tauri App"
 authors = ["you"]
@@ -37,7 +37,7 @@ rustflags = ["-C", "target-cpu=native"]
 default = []
 mundo   = []
 kwabena = []
-bukyt   = []
+bakyt   = []
 suyay   = []
 djamila = []
 test    = []

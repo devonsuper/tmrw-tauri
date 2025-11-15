@@ -1,5 +1,5 @@
  <script>
-    import { slide, blur } from 'svelte/transition';
+    import { fade, blur } from 'svelte/transition';
 
     export let data;
 
@@ -12,8 +12,8 @@
 
     <div
         class="wrapper"
-        in:blur={{duration: inDuration, delay: outDuration }}
-        out:blur={{duration: outDuration }}
+        in:fade={{duration: inDuration, delay: outDuration }}
+        out:fade={{duration: outDuration }}
     >
         <slot />
     </div>

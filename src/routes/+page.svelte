@@ -21,7 +21,7 @@
   const personToColor: Map<string, string> = new Map();
   personToColor.set("mundo", "green");
   personToColor.set("kwabena", "blue");
-  personToColor.set("bukyt", "orange");
+  personToColor.set("bakyt", "orange");
   personToColor.set("suyay", "yellow");
   personToColor.set("djamila", "purple");
 
@@ -42,7 +42,7 @@
   
 <main>
 <div class="player">
-    <div class="overlay" class:blurred={selectionMode} in:fade></div>
+    <div class="overlay" class:blurred={selectionMode}></div>
     <video
       id="myVideo"
       src={data.videoPath}
@@ -58,11 +58,11 @@
 
 
 {#if selectionMode}
-  <div class="buttons" in:fade out:fade>
-    <Button on:click={() => {goto("/content/learning")}} color={buttonColor}>What's learning like?</Button>
-    <Button on:click={() => {goto("/content/challenges")}} color={buttonColor}>What new challenges are you facing?</Button>
-    <Button on:click={() => {goto("/content/opportunities")}} color={buttonColor}>What new opportunities do you have? </Button>
-    <Button on:click={() => {goto("/aboutme")}} color={buttonColor}>Tell me about yourself</Button>
+  <div class="buttons" in:fade>
+    <Button on:click={() => {goto("/content/learning"); }} color={buttonColor}>What's learning like?</Button>
+    <Button on:click={() => {goto("/content/challenges"); }} color={buttonColor}>What new challenges are you facing?</Button>
+    <Button on:click={() => {goto("/content/opportunities"); }} color={buttonColor}>What new opportunities do you have? </Button>
+    <Button on:click={() => {goto("/aboutme"); }} color={buttonColor}>Tell me about yourself</Button>
   </div>
 {/if}
 
